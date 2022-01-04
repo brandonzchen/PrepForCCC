@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{dc6df5bb-cfa0-4894-9b05-380da4d96da3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CPH">
+      <UniqueIdentifier>{a55db440-1ce4-4934-9357-7c481de2d6e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\USACOProblems">
+      <UniqueIdentifier>{0710e249-d5e0-4ab6-b60a-f1bb91e3fcc4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="USACOProblems\Silver\Practice Problems\2016JanP2.cpp" />
+  </ItemGroup>
+</Project>
