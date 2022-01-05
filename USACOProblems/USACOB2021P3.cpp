@@ -2,6 +2,10 @@
 #include <unordered_set>
 #include <chrono>;
 using namespace std;
+int sizeofgrid;
+int numturns;
+
+set<vector<char>> currmoves;
 
 
 bool checkAndMove(vector<vector<char>> &currentgrid, int& y, int& x) {
@@ -14,7 +18,7 @@ bool checkAndMove(vector<vector<char>> &currentgrid, int& y, int& x) {
 }
 
 
-void solve(int &sizeofgrid, int &numturns, set<vector<char>> &currmoves, const char &first, const char &second) {
+void solve( const char &first, const char &second) {
 	for (int k = 1; k <= sizeofgrid - 1; k++) {
 		for (int h = 1; h <= sizeofgrid - 1; h++) {
 			if (numturns == 1) {
@@ -35,15 +39,15 @@ void solve(int &sizeofgrid, int &numturns, set<vector<char>> &currmoves, const c
 }
 
 int main() {
-	ifstream fin("1.in");
+	ifstream fin("USACOProblems/testfile.txt");
 	int numbercases;
 	fin >> numbercases;
 	for (int i = 0; i < numbercases; i++) {
-		int gridsize; fin >> gridsize;
-		int numberturns; fin >> numberturns;
-		vector<vector<char>>grid(gridsize);
-		for (int j = 0; j < gridsize; j++) {
-			for (int k = 0; k < gridsize; k++) {
+		fin >> sizeofgrid;
+		fin >> numturns;
+		vector<vector<char>>grid(sizeofgrid);
+		for (int j = 0; j < sizeofgrid; j++) {
+			for (int k = 0; k < sizeofgrid; k++) {
 				char current; fin >> current;
 				grid[j].push_back(current);
 			}
@@ -61,12 +65,11 @@ int main() {
 		}*/
 
 		int pathcount = 0;
-		set<vector<char>>currentmoves;
 
-		solve(gridsize, numberturns, currentmoves, 'r', 'd');
-		solve(gridsize, numberturns, currentmoves, 'd', 'r');
+		solve( 'r', 'd');
+		solve( 'd', 'r');
 
-		for (auto currentcase : currentmoves) {
+		for (auto currentcase : currmoves) {
 			int condition1 = 0;
 			int posx1 = 0; int posy1 = 0;
 			for (auto currentchar : currentcase) {

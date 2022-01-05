@@ -19,4 +19,7 @@
       <UniqueIdentifier>{0710e249-d5e0-4ab6-b60a-f1bb91e3fcc4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="USACOProblems\USACOB2021P3.cpp" />
+  </ItemGroup>
 </Project>
