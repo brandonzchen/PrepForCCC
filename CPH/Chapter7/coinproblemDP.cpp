@@ -6,6 +6,8 @@ int n;
 // Stores the coins that can be exhanged for a value.
 vector<int> coins;
 int dp[100000000];
+vector<int>choice;
+
 
 // This is recurrsive function that calls find(sum-c) everytime
 int find(int sum)
@@ -17,10 +19,17 @@ int find(int sum)
     if (dp[sum] != imax) return dp[sum];
     int ans = imax;
     // Check for every coin possible.
+    int temp = 0;
     for (int i = 0; i < coins.size(); i++)
     {
-        ans = min(ans, find(sum - coins[i]) + 1);
+        int result = find(sum - coins[i]);
+        if (result + 1 < ans) {
+            temp = coins[i];
+            ans = result + 1;
+        }
+        choice.push_back(temp);
     }
+    
     // Save value and return it.
     dp[sum] = ans;
     return dp[sum];
@@ -36,9 +45,12 @@ int main() {
         cin >> x;
         coins.push_back(x);
     }*/
-    coins = { 1,3,4 };
+    coins = { 1,3,4,6,8 };
     int sum;
-    sum = 6;
+    sum = 25;
     cout << find(sum) << endl;
+    for (auto it : choice) {
+        cout << it << " ";
+    }
     return 0;
 }
