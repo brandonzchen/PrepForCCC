@@ -20,6 +20,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="USACOProblems\USACOB2021P3.cpp" />
+    <ClCompile Include="USACOProblems\Silver\Practice Problems\2019JanP3.cpp" />
   </ItemGroup>
 </Project>
