@@ -23,6 +23,6 @@
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="USACOProblems\Silver\Practice Problems\Traffic_lights.cpp" />
+    <ClCompile Include="USACOProblems\Silver\Practice Problems\2012JanP2.cpp" />
   </ItemGroup>
 </Project>

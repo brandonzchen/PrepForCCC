@@ -2,9 +2,18 @@
 using namespace std;
 
 int main() {
-	long long a = pow(10, 6);
-	int b = pow(10, 6); 
-	long long c = a*b;
-	cout << a << " " << b << " " << c << " ";
+	int length, lights; cin >> length >> lights;
+	set<int>differences{ length - 1 };
+	set<int>trafficlights;
+	trafficlights.insert(1);
+	trafficlights.insert(length);
+	for (int i = 0; i < lights; i++) {
+		int current; cin >> current;
+		auto biggerthan = trafficlights.lower_bound(current);
+		auto lessthan = biggerthan--;
+		trafficlights.insert(current);
+
+	}
 	
+
 }

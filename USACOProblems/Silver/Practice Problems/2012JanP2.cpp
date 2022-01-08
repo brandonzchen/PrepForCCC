@@ -5,6 +5,8 @@ using namespace std;
 
 int main() {
 	ifstream fin("USACOProblems/Silver/Practice Problems/2012Janp2test.txt");
+	//ifstream fin("stacking.in");
+	//ofstream fout("stacking.out");
 	int hay, instructions; fin >> hay >> instructions;
 
 	vector<int> list(hay + 1);
@@ -12,7 +14,7 @@ int main() {
 		int temp1, temp2; fin >> temp1 >> temp2;
 		temp1--;
 		temp2--;
-			
+
 		list[temp1]++;
 		list[temp2 + 1]--;
 	}
