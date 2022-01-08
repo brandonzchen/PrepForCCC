@@ -1,4 +1,4 @@
-#include <cstdio>
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,26 +8,27 @@ typedef pair<ll, ll> pl;
 
 
 int main()
-{
-	ifstream fin("rental.in");
-	ofstream fout("rental.out");
+{	
+	freopen("2018JanP2test.txt", "r", stdin);
+	/*ifstream cin("rental.in");*/
+	/*ofstream cout("rental.out");*/
 	ll n, m, r;
-	fin >> n >> m >> r;
+	cin >> n >> m >> r;
 
 	vector<ll> milks(n);
 	for (int i = 0; i < n; ++i)
-		fin >> milks[i];
+		cin >> milks[i];
 
 	sort(all(milks), greater<ll>());
 	vector<pl> sells(m);
 	for (int i = 0; i < m; ++i)
-		fin >> sells[i].second >> sells[i].first;
+		cin >> sells[i].second >> sells[i].first;
 
 	sort(all(sells), greater<pl>());
 
 	vector<ll> rent(r);
 	for (int i = 0; i < r; ++i)
-		fin >> rent[i];
+		cin >> rent[i];
 
 	sort(all(rent), greater<ll>());
 
@@ -72,16 +73,16 @@ int main()
 		to_add = to_sell - decision[i];
 		if (to_add > 0)
 		{
-			//fout << to_sell << endl;
+			//cout << to_sell << endl;
 			ans += to_add;
 			sells[pos].second -= to_sub;
 		}
 		/*else
 		{
-			fout << decision[i] << endl;
+			cout << decision[i] << endl;
 		}*/
 	}
 
-	fout << ans << endl;
+	cout << ans << endl;
 	return 0;
 }

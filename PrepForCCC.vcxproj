@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="USACOProblems\Silver\Practice Problems\2019JanP3.cpp" />
+    <Text Include="2018JanP2test.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="USACOProblems\Silver\Practice Problems\Traffic_lights.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

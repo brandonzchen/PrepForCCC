@@ -3,18 +3,24 @@
 using namespace std;
 
 int main() {
-	int n = 3;
+	int n = 50000;
+	vector<vector<int>> subset;
 	for (int b = 0; b < pow(2,n); b++) {
-		vector<int> subset;
+		vector<int>temp;
 		
 		for (int i = 0; i < n; i++) {
 			if (b & (1 << i)) {
-				subset.push_back(i);
+				temp.push_back(i);
 			}
 		}
-		for (auto i : subset) {
-			cout << i << " ";
+		subset.push_back(temp);
+
+	}
+	for (auto i : subset) {
+		for (auto k : i) {
+			cout << k << " ";
 		}
 		cout << endl;
 	}
+
 }

@@ -3,7 +3,7 @@ using namespace std;
 using ll = long long;
 
 int main() {
-	ifstream fin("USACOProblems/Silver/Practice Problems/testfiles.txt");
+	ifstream fin("USACOProblems/Silver/Practice Problems/testfiles1.txt");
 	/*freopen("div7.out", "r", stdin);*/
 	//freopen("div7.out", "w", stdout);
 	ll cows;
