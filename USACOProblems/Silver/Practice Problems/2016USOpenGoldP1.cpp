@@ -6,55 +6,53 @@ bool sorty(pair<int, int>& firsty, pair<int, int>& secondy) {
 	return(firsty.second < secondy.second);
 }
 
-ll minmaxcalcadd(vector<pair<int, int>> &sorting, pair<int, int>newcoord,ll &max, ll &min) {
-	ll minx = sorting[0].first;
-	ll end = sorting.size() - 1;
-	ll maxx = sorting[end].first;
+ll minmaxcalcadd(vector<pair<int, int>> &sorting, pair<int, int>newcoord,ll &max, ll &min, char s) {
+	ll minx, end, maxx;
+	if (s == 'x')
+	{
+		minx = sorting[0].first;
+		end = sorting.size() - 1;
+		maxx = sorting[end].first;
+	}
+	else
+	{
+		minx = sorting[0].second;
+		end = sorting.size() - 1;
+		maxx = sorting[end].second;
+	}
 	if (newcoord.second > max) max = newcoord.second;
 	if (newcoord.second < min) min = newcoord.second;
 
-	if (maxx != minx && max != min) {
-		return (maxx - minx) * (max - min);
-	}
-	else if (maxx == minx && max != min) {
-		return 0;
-	}
-	else if (maxx != minx && max == min) {
-		return 0;
-	}
-	else {
-		return 0;
-	}
+	return (maxx - minx) * (max - min);
 }
 
 
-ll minmaxcalcsubtract(vector<pair<int, int>>& sorting, pair<int, int>delcoord, ll& max, ll& min) {
-	ll minx = sorting[0].first;
-	ll end = sorting.size() - 1;
-	ll maxx = sorting[end].first;
+ll minmaxcalcsubtract(vector<pair<int, int>>& sorting, pair<int, int>delcoord, ll& max, ll& min, char s) {
+	ll minx, end, maxx;
+	if (s == 'x')
+	{
+		minx = sorting[0].first;
+		end = sorting.size() - 1;
+		maxx = sorting[end].first;
+	}
+	else
+	{
+		minx = sorting[0].second;
+		end = sorting.size() - 1;
+		maxx = sorting[end].second;
+	}
 	if (delcoord.second == max) {
 		for (auto it : sorting) {
 			if (it.second > max) max = it.second;
 		}
 	}
 	if (delcoord.second == min) {
+		min = sorting[0].second;
 		for (auto it : sorting) {
 			if (it.second < min) min = it.second;
 		}
 	}
-
-	if (maxx != minx && max != min) {
-		return (maxx - minx) * (max - min);
-	}
-	else if (maxx == minx && max != min) {
-		return 0;
-	}
-	else if (maxx != minx && max == min) {
-		return 0;
-	}
-	else {
-		return 0;
-	}
+	return (maxx - minx) * (max - min);
 }
 
 //ll minmaxcalcy(vector<pair<int, int>> &sorting, pair<int, int>delcoord, ll max, ll min) {
@@ -87,9 +85,9 @@ vector < pair< int, int > > sortedbyy ;
 vector < pair< int, int > > sortedbyx ;
 
 int main(){
-	ifstream fin("USACOProblems/Silver/Practice Problems/splittingthefields.txt");
-	//ifstream fin("split.in");
-	//ofstream fout("split.out");
+	/*ifstream fin("USACOProblems/Silver/Practice Problems/splittingthefields.txt");*/
+	ifstream fin("split.in");
+	ofstream fout("split.out");
 	ll optimal = 0;
 	int cows;
 	fin >> cows;
@@ -103,8 +101,6 @@ int main(){
 	}
 
 	sort(sortedbyx.begin(), sortedbyx.end());
-	
-
 	vector < pair< int, int > > firstcoords{ sortedbyx[0]};
 	vector < pair< int, int > > secondcoords;
 	secondcoords = sortedbyx;
@@ -121,10 +117,11 @@ int main(){
 		if (it.second < globalminysecond) globalminysecond = it.second;
 	}
 	for (int i = 1; i < cows - 1; i++) {
+		pair<int, int> deleted = secondcoords[0];
 		firstcoords.push_back(sortedbyx[i]);
 		secondcoords.erase(secondcoords.begin());
-		ll first = minmaxcalcadd(firstcoords, sortedbyx[i], globalmaxyfirst, globalminyfirst);
-		ll second = minmaxcalcsubtract(secondcoords, sortedbyx[0], globalmaxysecond, globalminysecond);
+		ll first = minmaxcalcadd(firstcoords, sortedbyx[i], globalmaxyfirst, globalminyfirst, 'x');
+		ll second = minmaxcalcsubtract(secondcoords, deleted, globalmaxysecond, globalminysecond, 'x');
 		ll newarea = first + second;
 		if (initial - newarea > optimal && initial - newarea > 0)
 		{
@@ -140,19 +137,20 @@ int main(){
 	vector < pair< int, int > > secondcoordsy;
 	secondcoordsy = sortedbyy;
 	secondcoordsy.erase(secondcoordsy.begin());
-	ll globalminxfirst = firstcoords[0].second;
-	ll globalmaxxfirst = firstcoords[0].second;
-	ll globalminxsecond = secondcoords[0].second;
-	ll globalmaxxsecond = secondcoords[0].second;
-	for (auto it : secondcoords) {
-		if (it.second > globalmaxxsecond) globalmaxxsecond = it.second;
-		if (it.second < globalminxsecond) globalminxsecond = it.second;
+	ll globalminxfirst = firstcoordsy[0].first;
+	ll globalmaxxfirst = firstcoordsy[0].first;
+	ll globalminxsecond = secondcoordsy[0].first;
+	ll globalmaxxsecond = secondcoordsy[0].first;
+	for (auto it : secondcoordsy) {
+		if (it.first > globalmaxxsecond) globalmaxxsecond = it.first;
+		if (it.first < globalminxsecond) globalminxsecond = it.first;
 	}
 	for (int i = 1; i < cows - 1; i++) {
+		pair <int, int> deletedy = secondcoordsy[0];
 		firstcoordsy.push_back(sortedbyy[i]);
 		secondcoordsy.erase(secondcoordsy.begin());
-		ll firsty = minmaxcalcadd(firstcoords, sortedbyy[i], globalmaxxfirst, globalminxfirst);
-		ll secondy = minmaxcalcsubtract(secondcoords, sortedbyy[0], globalmaxxsecond, globalminxsecond);;
+		ll firsty = minmaxcalcadd(firstcoordsy, sortedbyy[i], globalmaxxfirst, globalminxfirst, 'y');
+		ll secondy = minmaxcalcsubtract(secondcoordsy, deletedy, globalmaxxsecond, globalminxsecond, 'y');
 		ll newareay = firsty + secondy;
 		if (initialy - newareay > optimal && initialy - newareay > 0)
 		{
@@ -160,9 +158,10 @@ int main(){
 			//cout << newareay;
 		}
 	}
+	
 
 
-	cout << optimal;
+	fout << optimal;
 	return 0;
 
 }
