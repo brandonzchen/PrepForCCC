@@ -22,7 +22,7 @@
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="USACOProblems\Silver\Practice Problems\arraydivision.cpp" />
+    <ClCompile Include="USACOProblems\Silver\Practice Problems\2019FebP3.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
