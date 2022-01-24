@@ -27,8 +27,8 @@ void dfs(int x, bool y) {
 
 int main(){
 	ifstream fin("USACOProblems/Silver/Practice Problems/2019FebP3test.txt");
-	//ifstream fin("revegetate.in");
-	//ofstream fout("revegetate.out");
+	freopen("perimeter.in","r",stdin);
+	freopen("perimeter.out","w",stdout);
 
 	fin >> N >> M;
 
