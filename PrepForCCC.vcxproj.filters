@@ -22,7 +22,4 @@
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="USACOProblems\Silver\Practice Problems\2019JanP2.cpp" />
-  </ItemGroup>
 </Project>
