@@ -42,3 +42,4 @@ int main() {
 	fout << (N - blocked) << endl;
 	return 0;
 }
+

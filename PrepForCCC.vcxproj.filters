@@ -22,4 +22,7 @@
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="USACO Silver\3. Graph\1. DFS\Practice\flight_routes_checkWIP.cpp" />
+  </ItemGroup>
 </Project>

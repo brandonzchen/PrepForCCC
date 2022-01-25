@@ -21,6 +21,9 @@
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="USACO Silver\3. Graph\1. DFS\Practice\flight_routes_checkWIP.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
