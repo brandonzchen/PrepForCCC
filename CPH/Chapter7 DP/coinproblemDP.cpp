@@ -49,8 +49,8 @@ int main() {
     int sum;
     sum = 25;
     cout << find(sum) << endl;
-    for (auto it : choice) {
-        cout << it << " ";
-    }
+    //for (auto it : choice) {
+    //    cout << it << " ";
+    //}
     return 0;
 }

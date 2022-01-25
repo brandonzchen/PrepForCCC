@@ -17,6 +17,7 @@ int main() {
 		schedule.push_back(temp);
 	}
 	sort(schedule.begin(), schedule.end(), sortSecond);
+	int pointer = 0;
 	for (ll j = 0; j < people; j++) {
 		count++;
 		ll runningcount = schedule[0].second;

@@ -37,6 +37,7 @@ int main() {
     //    cin >> x;
     //    coins.push_back(x);
     //}
+    n = 5;
     coins = { 1,3,4,6,8 };
     int sum = 25;
     //cin >> sum;

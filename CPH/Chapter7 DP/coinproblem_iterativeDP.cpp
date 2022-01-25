@@ -38,16 +38,18 @@ int find(int sum)
 
 int main() {
     for (int i = 0; i < 1000000; i++) dp[i] = imax;
-    dp[0] = 0;
-    cin >> n;
-    for (int i = 0; i < n; i++)
-    {
-        int x;
-        cin >> x;
-        coins.push_back(x);
-    }
-    int sum;
-    cin >> sum;
+    //dp[0] = 0;
+    //cin >> n;
+    //for (int i = 0; i < n; i++)
+    //{
+    //    int x;
+    //    cin >> x;
+    //    coins.push_back(x);
+    //}
+    coins = { 1,3,4,6,8 };
+    int sum = 26;
+    n = 5;
+    //cin >> sum;
     cout << find(sum) << endl;
     int curr = sum;
     cout << "Choice of coins:" << endl;

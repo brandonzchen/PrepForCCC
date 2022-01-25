@@ -4,7 +4,7 @@ using ll = long long;
 
 ll totalSum;
 int main(){
-	ifstream fin("USACOProblems/Silver/Practice Problems/arraydivisiontest.txt");
+	/*ifstream fin("USACOProblems/Silver/Practice Problems/arraydivisiontest.txt");*/
 	vector<int> A;
 	int numbers, groups;
 	cin >> numbers >> groups;
