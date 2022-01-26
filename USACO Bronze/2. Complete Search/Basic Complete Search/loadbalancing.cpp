@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 int main() {
+	freopen("balancing.in", "r", stdin);
+	freopen("balancing.out", "w", stdout);
 	int n, m; cin >> n >> m;
 	int x[n], y[n], ver[n], hor[n];
 	for (int i = 0; i < n; i++) {
@@ -36,5 +38,6 @@ int main() {
 			ans = min(ans, points);
 		}
 	
-	}cout << ans << endl;
+	}
+	cout << ans << endl;
 }

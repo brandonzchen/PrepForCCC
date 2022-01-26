@@ -16,12 +16,12 @@ int main()
 	for (int i = 0; i < N; i++) {
 		cin >> s2 >> s3;
 		for (int i = 0; i < 26; i++) {
-			for (int j = 0; j < size(s2); j++) {
+			for (int j = 0; j < s2.size(); j++) {
 				if (s2[j] == s1[i]) {
 					s2counter += 1;
 				}
 			}
-			for (int k = 0; k < size(s3); k++) {
+			for (int k = 0; k < s3.size(); k++) {
 				if (s3[k] == s1[i]) {
 					s3counter += 1;
 				}
