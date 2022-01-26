@@ -22,7 +22,4 @@
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="USACO Silver\3. Graph\2. Flood Fill\Practice\Icy_Perimeter2019JanP2FloodFill.cpp" />
-  </ItemGroup>
 </Project>
