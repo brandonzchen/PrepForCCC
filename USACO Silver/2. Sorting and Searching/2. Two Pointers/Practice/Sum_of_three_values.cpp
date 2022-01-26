@@ -1,17 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
+using pi = pair<int, int>;
 
 int main() {
-	/*ifstream fin("USACOProblems/Silver/Practice Problems/sumthreevaluestest.txt");*/
+	/*ifstream fin("USACO Silver/2. Sorting and Searching/2. Two Pointers/Practice/sumthreevaluestest.txt");*/
 	int arrsize, target; 
 	cin >> arrsize >> target;
 	vector<int>numbers;
 	vector<int>finalthree;
-	vector<int>numberscopy;
+	vector<pi>numberscopy;
 	for (int i = 0; i < arrsize; i++) {
 		int temp; cin >> temp;
 		numbers.push_back(temp);
-		numberscopy.push_back(temp);
+		pi valinx;
+		valinx = make_pair(temp, i);
+		numberscopy.push_back(valinx);
 	}
 	
 	sort(numbers.begin(), numbers.end());
@@ -36,13 +39,30 @@ int main() {
 	if (finalthree.size() == 0) {
 		cout << "IMPOSSIBLE";
 	}
-	else
-	{
-		for (auto i : finalthree) {
-			int fix = 0;
-			auto temp = find(numberscopy.begin(), numberscopy.end(), i);
-			cout << distance(numberscopy.begin(), temp) + 1 + fix;
-			cout << endl;
+	else{
+		vector<int>indexs;
+		for (int i = 0; i < 3; i++) {
+
+			for (int j = 0; j < numberscopy.size(); j++) {
+				if (numberscopy[j].first == finalthree[i]) {
+					if (count(indexs.begin(), indexs.end(), numberscopy[j].second)) {
+						continue;
+					}
+					else {
+						if (i != 2) {
+							cout << numberscopy[j].second + 1 << " ";
+							indexs.push_back(numberscopy[j].second);
+							break;
+						}
+						else {
+							cout << numberscopy[j].second + 1;
+							indexs.push_back(numberscopy[j].second);
+							break;
+						}
+						
+					}
+				}
+			}
 
 		}
 	}
