@@ -1,5 +1,8 @@
 #include <bits/stdc++.h>
+
 using namespace std;
+using pi = pair<int, int>;
+using ti = tuple<int, int, int>;
 
 //int main() {
 //	int people; cin >> people;
@@ -34,55 +37,40 @@ using namespace std;
 //	cout << maximum;
 //}
 
-
-
-const int MAX_N = 2e5;
-
-int N;
-int ans[MAX_N];
-vector<pair<pair<int, int>, int>> v(MAX_N);
-
 int main() {
-	cin >> N;
-	v.resize(N);
-	for (int i = 0; i < N; i++) {
-		cin >> v[i].first.first >> v[i].first.second;
-		v[i].second = i; // store the original index
+
+	int people; cin >> people;
+	vector<ti>se;
+	for (int i = 0; i < people; i++) {
+		int first, last; cin >> first >> last;
+		tuple<int, int, int> temp{first, last, i};
+		se.push_back(temp);
 	}
-	sort(v.begin(), v.end());
-
-	int rooms = 0, last_room = 0;
-	priority_queue<pair<int, int>> pq; // min heap to store departure times.
-	for (int i = 0; i < N; i++) {
-		if (pq.empty()) {
-			last_room++;
-			// make the departure time negative so that we create a min heap
-			// (cleanest way to do a min heap... default is max in c++)
-			pq.push(make_pair(-v[i].first.second, last_room));
-			ans[v[i].second] = last_room;
-		}
-		else {
-			// accessing the minimum departure time
-			pair<int, int> minimum = pq.top();
-			if (-minimum.first < v[i].first.first) {
-				pq.pop();
-				pq.push(make_pair(-v[i].first.second, minimum.second));
-				ans[v[i].second] = minimum.second;
-			}
-
-			else {
-				last_room++;
-				pq.push(make_pair(-v[i].first.second, last_room));
-				ans[v[i].second] = last_room;
+	sort(se.begin(), se.end());
+	vector <int> rooms {0};
+	int roomsize = 0;
+	vector<pi> print;
+	for (int j = 0; j < people; j++) {
+		int condition = 0;
+		for (int k = 0; k < rooms.size(); k++) {
+			if (get<0>(se[j]) > rooms[k]) {
+				rooms[k] = get<1>(se[j]);
+				condition = 1;
+				pi temp1{get<2>(se[j]), k + 1 };
+				print.push_back(temp1);
+				break;
 			}
 		}
-
-		rooms = max(rooms, int(pq.size()));
+		if (condition == 0) {
+			rooms.push_back(get<1>(se[j]));
+			pi temp1{ get<2>(se[j]),rooms.size()  };
+			print.push_back(temp1);
+		}
 	}
-
-
-	cout << rooms << "\n";
-	for (int i = 0; i < N; i++) {
-		cout << ans[i] << " ";
+	cout << rooms.size() << endl;
+	sort(print.begin(), print.end());
+	for (auto i : print) {
+		cout << i.second << " ";
 	}
 }
+
