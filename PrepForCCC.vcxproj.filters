@@ -22,7 +22,4 @@
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="USACO Silver\2. Sorting and Searching\3. Sorted Sets\Practice\room_allocationWIP.cpp" />
-  </ItemGroup>
 </Project>

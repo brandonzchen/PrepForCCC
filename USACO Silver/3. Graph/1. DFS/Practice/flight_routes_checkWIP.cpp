@@ -54,7 +54,8 @@ int main() {
 	}
 	if (visited.size() != needsvisit.size()) {
 		cout << "NO" << endl;
-		for (int i = 0; i < needsvisit.size(); i++) {
+		int nsize = needsvisit.size();
+		for (int i = 0; i < nsize; i++) {
 			if (count(visited.begin(), visited.end(), needsvisit[i])) continue;
 			else {
 				cout << needsvisit[i].first << " " << needsvisit[i].second;

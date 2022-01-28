@@ -43,7 +43,7 @@ int main() {
 	vector<ti>se;
 	for (int i = 0; i < people; i++) {
 		int first, last; cin >> first >> last;
-		tuple<int, int, int> temp{first, last, i};
+		ti temp{first, last, i};
 		se.push_back(temp);
 	}
 	sort(se.begin(), se.end());
@@ -56,7 +56,7 @@ int main() {
 			if (get<0>(se[j]) > rooms[k]) {
 				rooms[k] = get<1>(se[j]);
 				condition = 1;
-				pi temp1{get<2>(se[j]), k + 1 };
+				pi temp1{get<2>(se[j]), k+1 };
 				print.push_back(temp1);
 				break;
 			}
