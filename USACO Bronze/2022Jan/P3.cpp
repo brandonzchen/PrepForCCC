@@ -1,64 +1,36 @@
-//#include <bits/stdc++.h>
-//using namespace std;
-//
-//int K, N;
-//
-//int main() {
-//	freopen("race.in", "r", stdin);
-//	freopen("race.out", "w", stdout);
-//
-//	cin >> K >> N;
-//	for (int i = 0; i < N; ++i) {
-//		int X, l = 0, r = 0, t = 0;
-//		cin >> X;
-//
-//		for (int curr = 1;; ++curr) {
-//			l += curr; 
-//			++t;
-//			if (l + r >= K) {
-//				cout << t << endl;;
-//				break;
-//			}
-//			if (curr >= X) {
-//				r += curr; 
-//				++t; 
-//				if (l + r >= K) {
-//					cout << t << endl;
-//					break;
-//				}
-//			}
-//		}
-//	}
-//}
-
 #include <bits/stdc++.h>
 using namespace std;
-using vi = vector<int>;
-
+using ll = long long;
+using vi = vector <ll>;
 
 int main() {
-	int numcases; cin >> numcases;
-	for (int i = 0; i < numcases; i++) {
+	ll numcases; cin >> numcases;
+	for (ll i = 0; i < numcases; i++) {
 		vi pairs;
-		int count = 0;
-		int minimum = 100005;
-		int condition = 0;
-		int n; cin >> n;
-		vector<int>cows;
-		for (int j = 0; j < n; j++) {
-			int temp; cin >> temp;
+		ll count = 0;
+		ll minimum = 1000000005;
+		ll condition = 0;
+		ll n; cin >> n;
+		vector<ll>cows;
+		for (ll j = 0; j < n; j++) {
+			ll temp; cin >> temp;
 			cows.push_back(temp);
 		}
+		if (cows.size() <= 2) {
+			for (int i = 0; i < cows.size(); i++) {
+				minimum = min(minimum, cows[i]);
+			}
+		}
 		while (cows.size() >= 3) {
-			int current = cows[0];
-			int next = cows[1];
+			ll current = cows[0];
+			ll next = cows[1];
 			if (current > next) {
 				condition = 1;
 				cout << -1 << endl;
 				break;
 			}
 			else {
-				int difference = next - current;
+				ll difference = next - current;
 				if (cows[2] - difference >= 0) {
 					minimum = min(minimum, cows[2] - difference);
 					minimum = min(minimum, current);
@@ -82,7 +54,7 @@ int main() {
 			if (cows.size() == 2) {
 				if (cows[0] == cows[1]) {
 					pairs.push_back(cows[0]);
-					for (int m = 0; m < pairs.size(); m++) {
+					for (ll m = 0; m < pairs.size(); m++) {
 						count += (pairs[m] - minimum) * 2;
 					}
 					cout << count << endl;
@@ -91,10 +63,10 @@ int main() {
 					cout << -1 << endl;
 				}
 			}
+			
 			if (cows.size() == 1) {
 				if (cows[0] == minimum) {
-					pairs.push_back(cows[0]);
-					for (int m = 0; m < pairs.size(); m++) {
+					for (ll m = 0; m < pairs.size(); m++) {
 						count += (pairs[m] - minimum) * 2;
 					}
 					cout << count << endl;
@@ -102,6 +74,7 @@ int main() {
 				else {
 					cout << -1 << endl;
 				}
+				
 			}
 		}
 	}
