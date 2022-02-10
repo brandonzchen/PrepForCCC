@@ -5,9 +5,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int lis[1000001];
-int A[100000];
-int n;
+int lis[8];
+int A[8] = { 6, 2, 5, 1, 7, 4, 8, 3 };
+int n = 8;
 
 
 // Function that returns the max answer.
@@ -29,13 +29,12 @@ int solve()
 }
 
 int main() {
-    for (int i = 0; i < 1000001; i++)
+    for (int i = 0; i < n; i++)
         lis[i] = 1;
-    n = 100000;
+ /*   n = 100000;
     for (int i = 0; i < n; i++) {
         A[i] = rand() % 10000;
-    }
-    /*int A[8] = { 6, 2, 5, 1, 7, 4, 8, 3 };*/
+    }*/
     cout << solve() << endl;
     return 0;
 }

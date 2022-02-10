@@ -1,4 +1,4 @@
-/*
+  /*
 Chapter 7 : Dynamic Programming
 Topic : Coin Problem
 Question : You are given x and you have to count the number of solutions you can have, different arrangement means one count. 1 2 and 2 1 are different.
@@ -37,9 +37,9 @@ int main() {
     //    cin >> x;
     //    coins.push_back(x);
     //}
-    n = 5;
-    coins = { 1,3,4,6,8 };
-    int sum = 25;
+    n = 3;
+    coins = { 1,3,4 };
+    int sum = 5;
     //cin >> sum;
     cout << find(sum) << endl;
     return 0;

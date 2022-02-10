@@ -10,16 +10,13 @@ void search(int k) {
 		cout << endl;
 	}
 	else {
-		if (k != 0)
-			search(k + 1);
-			subset.push_back(k);
-		if (k != 1)
-			search(k + 1);
-			subset.pop_back();
+		search(k + 1);
+		subset.push_back(k);
+		search(k + 1);
+		subset.pop_back();
 	}
 }
 
 int main(){
-	search(0);
-	
+	search(0);	
 }

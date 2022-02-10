@@ -21,9 +21,6 @@
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="USACO Silver\2022Jan\P1.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>

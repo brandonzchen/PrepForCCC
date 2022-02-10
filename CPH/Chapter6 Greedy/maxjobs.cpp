@@ -20,10 +20,12 @@ bool comp(job a, job b)
 }
 
 // Main function which takes the job as input sorts it and outputs maximum jobs that can be done.
+
 void solve()
-{
-    const int n = 4;
-    /*cin >> n;*/
+{   
+    int x; 
+    cin >> x;
+    const int n = x;
     job jobs[n];
     for (int i = 0; i < n; i++)
     {

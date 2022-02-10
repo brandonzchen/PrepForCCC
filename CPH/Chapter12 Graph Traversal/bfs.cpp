@@ -7,22 +7,26 @@ using namespace std;
 
 // Adjacency list , lets suppose nodes are less then 1000
 vector<int> adj[1000];
-vector<int> vis(1000, 0);
+vector<bool> vis(1000, 0);
+int dis[7];
 
 void bfs(int x)
 {
     queue<int> q;
     q.push(x);
-
+    dis[x] = 0;
+    vis[x] = true;
     while (!q.empty())
     {
         int y = q.front();
         q.pop();
-        vis[y] = true;
-        for (int i = 0; i < adj[y].size(); i++)
+
+        for (auto u : adj[y])
         {
-            if (vis[adj[y][i]]) continue;
-            q.push(adj[y][i]);
+            if (vis[u]) continue;
+            vis[u] = true;
+            q.push(u);
+            dis[u] = dis[y] + 1;
         }
     }
 }
@@ -50,5 +54,8 @@ int main() {
         }
     }
     cout << "Connected Graph" << endl;
+    for (auto i : dis) {
+        cout << i << endl;
+    }
     return 0;
 }

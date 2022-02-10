@@ -27,41 +27,26 @@ void solve()
     }
 }
 
-//void oneDSolve() {
-//    dp[0] = 1;
-//    for (int k = 1; k <= n; k++) {
-//        for (int x = sum; x >= 0; x--) {
-//            if (dp[x]) dp[x + W[k]] = 1;
-//        }
-//    }
-//
-//
-//}
-
 int main() {
     // Input and Initialisation
-    //cin >> n;
-    //for (int i = 0; i < n; i++)
-    //{
-    //    cin >> W[i];
-    //    sum += W[i];
-    //}
-    ifstream fin("knapsacktest.txt");
+    ifstream fin("CPH/Chapter7 DP/knapsacktest.txt");
     fin >> n;
     for (int i = 0; i < n; i++)
     {
         fin >> W[i];
         sum += W[i];
     }
-    for (int i = 0; i <= sum; i++){
-        for (int j = 0; j <=  sum; j++) dp[i][j] = 0;
-        
-       
+    for (int i = 0; i <= sum; i++)
+    {
+        for (int j = 0; j <= n; j++)
+        {
+            dp[j][i] = 0;
+        }
     }
     // Call out the solver
     solve();
 
     for (int i = 0; i <= sum; i++)
-        if (dp[i]) cout << i << " ";
+        if (dp[n][i]) cout << i << " ";
     return 0;
 }
