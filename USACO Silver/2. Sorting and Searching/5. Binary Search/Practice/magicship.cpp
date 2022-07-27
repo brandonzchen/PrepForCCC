@@ -31,6 +31,7 @@ int main() {
 	}
 
 	long long l = 0, r = 1e18;
+
 	while (r - l > 1) {
 		long long mid = (l + r) / 2;
 		long long cnt = mid / n, rem = mid % n;

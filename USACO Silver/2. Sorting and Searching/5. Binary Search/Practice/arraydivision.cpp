@@ -14,6 +14,7 @@ int main(){
 		totalSum += A[i];
 	}
 	ll lowest = 1, highest = totalSum;
+
 	while (lowest < highest) {
 		ll max = lowest + (highest - lowest) / 2;
 		int i = 0, j = 0;

@@ -15,6 +15,7 @@ int main() {
 	ll longest = 0;
 
 	ll remainder = 0;
+
 	for (ll i = 1; i <= cows; i++) {
 		ll current;
 		fin >> current;
@@ -28,4 +29,4 @@ int main() {
 		}
 	}
 	cout << longest << endl;
-}
+} 

@@ -17,6 +17,7 @@ void floodfill(int r, int c) {
 	// Note: you can also use a queue and pop from the front for a BFS-based approach
 	stack<pair<int, int>> frontier;
 	frontier.push({ r, c });
+
 	while (!frontier.empty()) {
 		r = frontier.top().first;
 		c = frontier.top().second;

@@ -28,6 +28,7 @@ int main() {
 	ofstream fout("fenceplan.out");
 
 	int n, m; fin >> n >> m;
+
 	for (int i = 0; i < n; i++) {
 		fin >> cows[i].first >> cows[i].second;
 	}

@@ -25,7 +25,7 @@ int main() {
 		trafficlights.insert(current);
 		auto end = differences.end();
 		end--;
-		cout << *end << endl;
+		cout << *end << endl ;
 	}
 
 }

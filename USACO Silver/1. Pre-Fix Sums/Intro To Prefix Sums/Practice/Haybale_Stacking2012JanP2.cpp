@@ -23,4 +23,4 @@ int main() {
 	}
 	sort(list.begin(), list.end());
 	cout << list[hay/ 2 + 1] << endl;
-}
+} 

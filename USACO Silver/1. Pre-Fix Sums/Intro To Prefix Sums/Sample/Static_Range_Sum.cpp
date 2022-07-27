@@ -25,5 +25,5 @@ int main() {
 		int l, r;
 		cin >> l >> r;
 		cout << p[r] - p[l] << "\n";
-	}
+	} 
 }

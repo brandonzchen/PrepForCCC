@@ -14,6 +14,7 @@ int main() {
 		comb.push_back(temp);
 	}
 	sort(comb.begin(), comb.end());
+
 	for (ll j = 0; j < lines; j++) {
 		count += comb[j].first;
 		points += comb[j].second - count;

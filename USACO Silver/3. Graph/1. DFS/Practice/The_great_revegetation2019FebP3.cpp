@@ -26,6 +26,7 @@ void dfs(int x, bool y) {
 
 
 int main(){
+
 	ifstream fin("USACOProblems/Silver/Practice Problems/2019FebP3test.txt");
 	freopen("perimeter.in","r",stdin);
 	freopen("perimeter.out","w",stdout);

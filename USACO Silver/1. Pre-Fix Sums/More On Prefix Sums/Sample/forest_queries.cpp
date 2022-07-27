@@ -8,8 +8,6 @@ int tree_pref[MAX_SIDE + 1][MAX_SIDE + 1];
 int forest[MAX_SIDE + 1][MAX_SIDE + 1];
 
 int main() {
-	ios_base::sync_with_stdio(0);
-	cin.tie(0);
 
 	int N;
 	int Q;

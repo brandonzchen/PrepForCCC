@@ -2,7 +2,7 @@
 
 using namespace std;
 using pi = pair<int, int>;
-using ti = tuple<int, int, int>;
+using ti = tuple<int, int , int>;
 
 //int main() {
 //	int people; cin >> people;

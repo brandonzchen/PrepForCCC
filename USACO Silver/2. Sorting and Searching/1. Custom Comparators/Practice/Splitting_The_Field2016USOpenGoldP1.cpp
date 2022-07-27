@@ -221,7 +221,7 @@ vector < pair< ll, ll > > sortedbyy;
 vector < pair< ll, ll > > sortedbyx;
 ll sumx[500005], sumy[500005], revsumx[500005], revsumy[500005];
 int cows;
-bool sorty(pair<ll, ll>& firsty, pair<ll, ll>& secondy) {
+bool sorty(pair<ll, ll>& firsty, pair<ll, ll>& secondy)  
 	return(firsty.second < secondy.second);
 }
 void calArea(vector <pair<ll, ll>>& vx, vector <pair<ll, ll>>& vy) {

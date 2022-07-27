@@ -40,6 +40,7 @@ using namespace std;
 int main() {
 	int cubes; cin >> cubes;
 	multiset<int> total;
+
 	for (int i = 0; i < cubes; ++i) {
 		int temp; cin >> temp;
 		auto it = total.upper_bound(temp);
