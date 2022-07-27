@@ -16,5 +16,5 @@ int main() {
 		}
 		dp[i] %= 1000000007;
 	}
-	cout << dp[n] << "\n";
+	cout << dp[n] << endl;
 }
