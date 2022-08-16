@@ -52,7 +52,7 @@ int main() {
 					if (grid[current.first][current.second + 1] == 0) peri++;
 					else if (grid[current.first][current.second + 1] == 1) {
 						pi temp1 = { current.first, current.second + 1 };
-						blob.push(temp1);
+						blob.push(temp1); 
 						grid[current.first][current.second + 1] = 2;
 					}
 					if (grid[current.first][current.second - 1] == 0) peri++;
