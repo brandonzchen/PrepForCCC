@@ -21,10 +21,6 @@
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="USACO Silver\2. Sorting and Searching\2. Two Pointers\Practice\pairedup.cpp" />
-    <ClCompile Include="USACO Silver\3. Graph\3. Tree Algorithms\Practice\treediametercpp.cpp" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
