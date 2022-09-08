@@ -5,12 +5,12 @@ using pi = pair<int, int>;
 
 int main() {
 	/*ifstream fin("USACO Silver/3. Graph/2. Flood Fill/Practice/2019JanP2test.txt");*/
-	freopen("perimeter.in", "r", stdin);
-	freopen("perimeter.out", "w", stdout);
+	ifstream cin("perimeter.in");
+	ofstream cout("perimeter.out");
 	int size;cin >> size;
 	vi top(size + 2, 0);
 	vector<vi>grid;
-	grid.push_back(top);
+	grid.push_back(top); 
 	for (int i = 0; i < size; i++) {
 		vi row = {0};
 		for (int j = 0; j < size; j++) {
