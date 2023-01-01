@@ -37,8 +37,8 @@ long long solve(vector<long long> cows, int k) {
 	return dp[n - 1][k - 1];
 }
 int main() {
-	freopen("cbarn2.in", "r", stdin);
-	freopen("cbarn2.out", "w", stdout);
+	ifstream cin ("cbarn2.in");
+	ofstream cout("cbarn2.out");
 	int n, k;
 	cin >> n >> k;
 	vector<long long> cows(n);

@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-	freopen("teamwork.in", "r", stdin);
-	freopen("teamwork.out", "w", stdout);
+	ifstream cin ("teamwork.in");
+	ofstream cout ("teamwork.out");
 
 	ll n, k; cin >> n >> k;
 	vector<ll> v(n);

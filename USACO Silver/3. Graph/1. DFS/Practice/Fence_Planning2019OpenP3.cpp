@@ -24,16 +24,16 @@ void dfs(int node) {
 
 int main() {
 	//ifstream fin("USACOProblems/Silver/Practice Problems/2019OpenP3test.txt");
-	ifstream fin("fenceplan.in");
-	ofstream fout("fenceplan.out");
+	ifstream cin("fenceplan.in");
+	ofstream cout("fenceplan.out");
 
-	int n, m; fin >> n >> m;
+	int n, m; cin >> n >> m;
 
 	for (int i = 0; i < n; i++) {
-		fin >> cows[i].first >> cows[i].second;
+		cin >> cows[i].first >> cows[i].second;
 	}
 	for (int i = 0; i < m; i++) {
-		int a, b; fin >> a >> b;
+		int a, b; cin >> a >> b;
 		--a, --b;
 		adj[a].push_back(b);
 		adj[b].push_back(a);
@@ -49,5 +49,5 @@ int main() {
 			perimeter = min(perimeter, 2 * (maxX - minX) + 2 * (maxY - minY));
 		}
 	}
-	fout << perimeter << endl;
+	cout << perimeter << endl;
 }

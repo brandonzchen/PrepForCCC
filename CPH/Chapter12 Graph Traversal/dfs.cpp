@@ -4,7 +4,7 @@ using namespace std;
 // Adjacency list , lets suppose nodes are less then 1000
 vector<int> adj[1000];
 vector<int> vis(1000, 0);
-
+cout << adj[10];
 void dfs(int x)
 {
     if (vis[x]) return;

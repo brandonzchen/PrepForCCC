@@ -3,13 +3,15 @@
 using namespace std;
 int n, k;
 int main() {
-	ifstream fin("USACOProblems/Silver/Practice Problems/diamond.in");
-	//ifstream fout("diamond.out");
+	/*ifstream fin("USACOProblems/Silver/Practice Problems/diamond.in");*/
+	//ifstream cin("diamond.in");
+	//ofstream cout("diamond.out");
 
-	fin >> n >> k;
+
+	cin >> n >> k;
 	vector < int>diamonds;
 	for (int i = 0; i < n; i++) {
-		int temp; fin >> temp;
+		int temp; cin >> temp;
 		diamonds.push_back(temp);
 	}
 	sort(diamonds.begin(), diamonds.end());

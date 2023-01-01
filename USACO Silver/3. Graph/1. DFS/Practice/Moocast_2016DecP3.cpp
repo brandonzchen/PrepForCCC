@@ -13,14 +13,14 @@ void dfs(vector<vector<int>> graph, int node, vector<bool>& visited, int& len) {
 
 int main() {
 	/*ifstream fin("USACOProblems/Silver/Practice Problems/2016DecP3test.txt");*/
-	ifstream fin("moocast.in");
-	ofstream fout("moocast.out");
+	ifstream cin("moocast.in");
+	ofstream cout("moocast.out");
 	
-	int n; fin >> n;
+	int n; cin >> n;
 	vector<vector<int>> cows(n);
 	for (int i = 0; i < n; i++) {
 		int a, b, c;
-		fin >> a >> b >> c;
+		cin >> a >> b >> c;
 		cows[i] = vector<int>{ a,b,c };
 	}
 
@@ -41,7 +41,7 @@ int main() {
 		ans = max(ans, len);
 	}
 
-	fout << ans;
+	cout << ans;
 
 	return 0;
 }

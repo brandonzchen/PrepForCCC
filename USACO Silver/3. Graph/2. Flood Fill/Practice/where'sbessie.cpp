@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-ifstream cin("where.in");
-ofstream cout("where.out");
+//ifstream cin("where.in");
+//ofstream cout("where.out");
 
 int N, x, y, a, b;
 int grid[20][20];

@@ -27,15 +27,16 @@ void dfs(int x, bool y) {
 
 int main(){
 
-	ifstream fin("USACOProblems/Silver/Practice Problems/2019FebP3test.txt");
-	freopen("perimeter.in","r",stdin);
-	freopen("perimeter.out","w",stdout);
+	//ifstream fin("USACOProblems/Silver/Practice Problems/2019FebP3test.txt");
 
-	fin >> N >> M;
+	//ifstream cin("revegetate.in");
+	//ofstream cout("revegetate.out");
+
+	cin >> N >> M;
 
 	while (M--) {
 		int a, b; char c;
-		fin >> c >> a >> b;
+		cin >> c >> a >> b;
 		--a, --b;
 		int d = (c == 'S' ? 1 : 0);
 		adj[a].push_back({ b, d });

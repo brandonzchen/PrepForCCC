@@ -1,68 +1,94 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool sortbysec(const tuple<int, int, int>& a,
+	const tuple<int, int, int>& b)
+{
+	return (get<1>(a) < get<1>(b));
+}
+
 int main() {
-	int cow_num;
-	std::cin >> cow_num;
+	
 
-	set<int> seen_x, seen_y;
-	vector<pair<int, int>> cows(cow_num);
-	for (pair<int, int>& c : cows) {
-		std::cin >> c.first >> c.second;
-		assert(!(seen_x.count(c.first) || seen_y.count(c.second)));
-		seen_x.insert(c.first);
-		seen_y.insert(c.second);
+	//first is less than, second is greater than
+	int cows; cin >> cows;
+	vector<tuple<int, int, int>> xcomp;
+	vector<tuple<int, int, int>> ycomp;
+	vector<pair<int, int>> cownumbers;
+	for (int i = 1; i <= cows; i++) {
+		int x, y; cin >> x >> y;
+		pair<int, int> temp;
+		temp = make_pair(x, y);
+		cownumbers.push_back(temp);
+		tuple <int, int, int> tempcomp;
+		tempcomp = make_tuple(i, 0, 0);
+		xcomp.push_back(tempcomp);
+		ycomp.push_back(tempcomp);
 	}
+	for (int i = 0; i < cows; i++) {
+		pair<int, int>currentcomp;
+		currentcomp = cownumbers[i];
+		for (int j = 0; j < cows; j++) {
+			if (cownumbers[j] == currentcomp) {
+				continue;
+			}
+			else {
+				if (cownumbers[j].first < currentcomp.first) {
+					get<1>(xcomp[i]) += 1;
+				}
+				if (cownumbers[j].first > currentcomp.first) {
+					get<2>(xcomp[i]) += 1;
+				}
+				if (cownumbers[j].second < currentcomp.second) {
+					get<1>(ycomp[i]) += 1;
+				}
+				if (cownumbers[j].second > currentcomp.second) {
+					get<2>(ycomp[i])+= 1;
+				}
 
-	sort(cows.begin(), cows.end());
-	map<int, int> reduced_x;
-	for (int c = 0; c < cow_num; c++) {
-		reduced_x[cows[c].first] = c;
-	}
-
-	auto cmp = [&](const pair<int, int>& c1, const pair<int, int>& c2) {
-		return c1.second < c2.second;
-	};
-	sort(cows.begin(), cows.end(), cmp);
-	map<int, int> reduced_y;
-	for (int c = 0; c < cow_num; c++) {
-		reduced_y[cows[c].second] = c;
-	}
-
-	for (auto& [x, y] : cows) {
-		x = reduced_x[x];
-		y = reduced_y[y];
-	}
-
-	sort(cows.begin(), cows.end()); 
-
-	vector<vector<int>> lt_y(cow_num, vector<int>(cow_num + 1));
-
-	vector<vector<int>> gt_y(cow_num, vector<int>(cow_num + 1));
-	for (int c = 0; c < cow_num; c++) {
-		int curr_y = cows[c].second;
-		for (int x = 1; x <= cow_num; x++) {
-			lt_y[curr_y][x] = (
-				lt_y[curr_y][x - 1] + (cows[x - 1].second < curr_y)
-				);
-			gt_y[curr_y][x] = (
-				gt_y[curr_y][x - 1] + (cows[x - 1].second > curr_y)
-				);
+			}
 		}
 	}
-
-	long long total = 0;
-	for (int c1 = 0; c1 < cow_num; c1++) {
-		for (int c2 = c1 + 1; c2 < cow_num; c2++) {
-			int bottom = min(cows[c1].second, cows[c2].second);
-			int top = max(cows[c1].second, cows[c2].second);
-
-			int bottom_total = 1 + lt_y[bottom][c2 + 1] - lt_y[bottom][c1];
-			int top_total = 1 + gt_y[top][c2 + 1] - gt_y[top][c1];
-			total += (long)bottom_total * top_total;
+	sort(xcomp.begin(), xcomp.end(), sortbysec);
+	sort(ycomp.begin(), ycomp.end(), sortbysec);
+	set<vector<int>> allowed;
+	for (int i = 0; i < cows; i++) {
+		vector<int>tempcomparison;
+		tempcomparison.push_back(get<0>(xcomp[i]));
+		for (int j = 0; j < cows; j++) {
+			if (xcomp[i] == xcomp[j]) {
+				vector<int>t;
+				t.push_back(get<0>(xcomp[i]));
+				allowed.insert(t);
+			}
+			else {
+				tempcomparison.push_back(get<0>(xcomp[j]));
+				sort(tempcomparison.begin(), tempcomparison.end());
+				allowed.insert(tempcomparison);
+			}
+			
 		}
-	}
 
-	total += cow_num + 1;
-	cout << total << endl;
+	}
+	for (int i = 0; i < cows; i++) {
+		vector<int>tempcomparison;
+		tempcomparison.push_back(get<0>(ycomp[i]));
+		for (int j = 0; j < cows; j++) {
+			if (ycomp[i] == ycomp[j]) {
+				vector<int>t;
+				t.push_back(get<0>(ycomp[i]));
+				allowed.insert(t);
+			}
+			else {
+				tempcomparison.push_back(get<0>(ycomp[j]));
+				sort(tempcomparison.begin(), tempcomparison.end());
+				allowed.insert(tempcomparison);
+			}
+
+		}
+
+	}
+	cout << allowed.size() + 1;
+
+	
 }
