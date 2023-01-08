@@ -54,6 +54,8 @@ int main() {
         }
     }
     cout << "Connected Graph" << endl;
+    //can also check for size of visited vs total nodes
+
     for (auto i : dis) {
         cout << i << endl;
     }

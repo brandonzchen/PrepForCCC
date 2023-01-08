@@ -2,9 +2,9 @@
 using namespace std;
 
 int main() {
-	ifstream fin("USACOProblems/Silver/Practice Problems/trafficlightstest.txt");
+	//ifstream cin("USACOProblems/Silver/Practice Problems/trafficlightstest.txt");
 	int length, lights;
-	fin >> length >> lights;
+	cin >> length >> lights;
 	multiset<int>differences;
 	differences.insert(0);
 	differences.insert(length);
@@ -12,7 +12,7 @@ int main() {
 	trafficlights.insert(0);
 	trafficlights.insert(length);
 	for (int i = 0; i < lights; i++) {
-		int current;fin >> current;
+		int current;cin >> current;
 		auto temp = trafficlights.lower_bound(current);
 		auto biggerthan = temp;
 		auto lessthan = --temp;

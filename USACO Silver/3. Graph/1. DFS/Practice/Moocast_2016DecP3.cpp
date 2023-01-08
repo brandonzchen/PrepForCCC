@@ -12,7 +12,7 @@ void dfs(vector<vector<int>> graph, int node, vector<bool>& visited, int& len) {
 }
 
 int main() {
-	/*ifstream fin("USACOProblems/Silver/Practice Problems/2016DecP3test.txt");*/
+
 	ifstream cin("moocast.in");
 	ofstream cout("moocast.out");
 	

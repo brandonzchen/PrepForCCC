@@ -1,24 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int dp[5][5];
+
 string s1, s2;
-int dp[5001][5001];
+
+int solve(int i, int j)
+{
+    if (dp[i][j] != -1) return dp[i][j];
+    if (s1[i - 1] == s2[j - 1]) dp[i][j] = solve(i - 1, j - 1);
+    else dp[i][j] = min(min(solve(i - 1, j), solve(i - 1, j - 1)), solve(i, j - 1)) + 1;
+    return dp[i][j];
+}
 
 int main() {
-
-	cin >> s1 >> s2;
-	for (int i = 1; i <= (int)s1.size(); i++) {
-		dp[i][0] = i;
-	}
-	for (int i = 1; i <= (int)s2.size(); i++) {
-		dp[0][i] = i;
-	}
-	for (int i = 1; i <= (int)s1.size(); i++) {
-		for (int j = 1; j <= (int)s2.size(); j++) {
-			int cost = 1;
-			if (s1[i - 1] == s2[j - 1]) cost = 0;
-			dp[i][j] = min(dp[i - 1][j] + 1, min(dp[i][j - 1] + 1, dp[i - 1][j - 1] + cost));
-		}
-	}
-	cout << dp[s1.size()][s2.size()];
+    for (int i = 0; i < 5; i++)
+        for (int j = 0; j < 5; j++)
+        {
+            if (i == 0) dp[i][j] = j;
+            else if (j == 0) dp[i][j] = i;
+            else dp[i][j] = -1;
+        }
+    s1 = "DESK";
+    s2 = "KEY";
+    cout << solve(s1.size(), s2.size()) << endl;
+    return 0;
 }
