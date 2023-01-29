@@ -21,8 +21,10 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="2018JanP2test.txt" />
+    <Text Include="USACO Silver\2022Dec\p2test.txt" />
+    <Text Include="USACO Silver\3. Graph\p2out.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="USACO Silver\2022Dec\P2.cpp" />
+    <ClCompile Include="USACO Silver\2023Jan\P2.cpp" />
   </ItemGroup>
 </Project>
